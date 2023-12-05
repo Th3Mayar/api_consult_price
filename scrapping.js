@@ -14,8 +14,9 @@ async function scrapeEbayProductInfo(url) {
 
     const description = $('.merText body__5616e150 primary__5616e150').text().trim();
     const productName = $('.x-item-title__mainTitle').text().trim();
-    const price = +$('.x-price-primary .ux-textspans').first().text().trim().split("$")[1];
-
+    const pricebien = $('.x-price-primary .ux-textspans').first().text().trim();
+    const price = +pricebien.match(/\d+(\.\d+)?/g).join(".");
+    console.log(pricebien)
     console.log('Nombre del producto:', productName);
     console.log('Precio:', price);
 
