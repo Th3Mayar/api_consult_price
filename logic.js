@@ -1,3 +1,5 @@
+import scrapeEbayProductInfo from "./scrapping.js";
+
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -5,21 +7,22 @@ function delay(ms) {
 async function obtenerProductosUsuario() {
   try {
     const query = `
-          query obtenerUsuariosConProductos {
-              obtenerUsuariosConProductos {
-                  id
-                  nombre
-                  apellido
-                  productos {
-                      id
-                      nombre
-                      descripcion
-                      precio
-                      precioStop
-                  }
-              }
+      query obtenerUsuariosConProductos {
+        obtenerUsuariosConProductos {
+          id
+          nombre
+          apellido
+          productos {
+            id
+            nombre
+            descripcion
+            precio
+            precioStop
+            url
           }
-        `;
+        }
+      }
+    `;
 
     const response = await fetch("http://localhost:4000/", {
       method: "POST",
@@ -44,6 +47,22 @@ async function obtenerProductosUsuario() {
         })),
       })
     );
+
+    for (const usuario of usuariosConProductos) {
+      for (const producto of usuario.productos) {
+        // Obtener el precio actual de eBay para cada URL de producto
+        const ebayInfo = await scrapeEbayProductInfo(producto.url);
+
+        if (ebayInfo && ebayInfo.precio) {
+          // Comparar el precio obtenido de eBay con el precioStop del producto
+          if (ebayInfo.precio === producto.precioStop) {
+            console.log(
+              `¡Alerta! El precio y el precioStop del producto ${producto.nombre} del usuario ${usuario.nombre} ${usuario.apellido} son iguales.`
+            );
+          }
+        }
+      }
+    }
 
     console.log(
       "Usuarios con productos:",
