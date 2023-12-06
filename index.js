@@ -22,6 +22,15 @@ app.post("/scrapping", async (req, res) => {
   }
 });
 
+app.get('/logic', async (res) => {
+  try {
+    const productosConAlertas = await obtenerProductosConAlertas();
+    res.json(productosConAlertas);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener productos con alertas' });
+  }
+});
+
 app.listen(5000, () => {
   console.log("Server running on port http://localhost:5000");
 });

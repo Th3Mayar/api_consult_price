@@ -32,10 +32,10 @@ async function scrapeEbayProductInfo(url) {
     const productName = $(".x-item-title__mainTitle").text().trim();
     const pricebien = $(".x-price-primary .ux-textspans").first().text().trim();
     const price = +pricebien.match(/\d+(\.\d+)?/g).join(".");
-    console.log(pricebien);
+    /*console.log(pricebien);
     console.log("Nombre del producto:", productName);
     console.log("Precio:", price);
-    console.log("Description: ", description);
+    console.log("Description: ", description);*/
 
     // Obtener rutas de las imágenes
     const imageUrls = [];
@@ -48,7 +48,7 @@ async function scrapeEbayProductInfo(url) {
       }
     });
 
-    console.log("Rutas de las imágenes:", imageUrls);
+    //console.log("Rutas de las imágenes:", imageUrls);
 
     return {
       nombre: productName,
