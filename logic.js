@@ -17,7 +17,7 @@ async function registrarNotification(input) {
     `;
 
     try {
-      const response = await fetch("http://localhost:4000/", {
+      const response = await fetch("https://api-price-notify.onrender.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +65,7 @@ async function obtenerProductosUsuario() {
       }
     `;
 
-    const response = await fetch("http://localhost:4000/", {
+    const response = await fetch("https://api-price-notify.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
