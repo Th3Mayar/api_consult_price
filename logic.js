@@ -111,4 +111,4 @@ async function logic() {
   }
 }
 
-logic();
+export default logic;

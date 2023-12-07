@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import scrapeEbayProductInfo from "./scrapping.js";
-import logic from './logic.js';
+import logicJS from './logic.js';
 
 const app = express();
 
@@ -34,5 +34,5 @@ app.get('/logic', async (res) => {
 
 app.listen(5000, () => {
   console.log("Server running on port http://localhost:5000");
-  logic();
+  logicJS();
 });
