@@ -107,7 +107,7 @@ async function obtenerProductosUsuario() {
 async function logic() {
   while (true) {
     await obtenerProductosUsuario();
-    await delay(10000);
+    await delay(86400000);
   }
 }
 
