@@ -99,27 +99,6 @@ async function obtenerProductosUsuario() {
         });
       }
     );
-
-    /*for (const usuario of usuariosConProductos) {
-      for (const producto of usuario.productos) {
-        // Obtener el precio actual de eBay para cada URL de producto
-
-        if (ebayInfo && ebayInfo.precio) {
-          // Comparar el precio obtenido de eBay con el precioStop del producto
-          if (ebayInfo.precio === producto.precioStop) {
-            console.log(
-              `¡Alerta! El precio y el precioStop del producto ${producto.nombre} del usuario ${usuario.nombre} ${usuario.apellido} son iguales.`
-            );
-          }
-        }
-      }
-    }*/
-
-    /*console.log(
-      "Usuarios con productos:",
-      JSON.stringify(usuariosConProductosLegibles, null, 2)
-    );*/
-
   } catch (error) {
     console.error("Error al obtener la notification", error);
   }
