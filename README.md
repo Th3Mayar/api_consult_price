@@ -1,47 +1,47 @@
-# Documentación del Script de Scraping de Páginas de Ventas
+# Sales Page Scraping Script Documentation
 
-Este script está diseñado para obtener información de productos de páginas de ventas, como eBay, mediante técnicas de scraping.
+This script is designed to obtain product information from sales sites, such as eBay, using scraping techniques.
 
-## Instalación
+## Facility
 
-1. Clona el repositorio en tu máquina local.
+1. Clone the repository to your local machine.
 
-2. Instala las dependencias necesarias utilizando npm:
+2. Install the necessary dependencies using npm:
 
    ```bash
    npm install
 
-2. Uso
+2. Use
 
-    El script proporciona dos endpoints para interactuar con él:
+    The script provides two endpoints to interact with it:
 
-  1. POST /scrapping
+  1.POST/scrapping
      
-  - Descripción: Obtiene información detallada de un producto de eBay utilizando su URL.
-  - Método HTTP: POST
-  - Datos requeridos: Un objeto JSON con la URL del producto en eBay
+  - Description: Get detailed information about an eBay product using its URL.
+  - HTTP Method: POST
+  - Required data: A JSON object with the URL of the product on eBay
 
   ```bash
     {
-      "url": "https://www.ebay.com/itm/Producto-Ejemplo/1234567890"
+      "url": "https://www.ebay.com/itm/Product-Example/1234567890"
     }
   ```
 
-Respuesta exitosa:
+Successful answer:
 
-  - Código 200 OK con un objeto JSON que contiene información del producto.
+  - Code 200 OK with a JSON object containing product information.
     
-Respuesta de error:
-  - Código 400 Bad Request si no se proporciona una URL válida, o Código 500 Internal Server Error si ocurre un error durante el proceso de scraping.
+Error response:
+  - Code 400 Bad Request if a valid URL is not provided, or Code 500 Internal Server Error if an error occurs during the scraping process.
 
   5. GET /logic
      
-Descripción: 
-  - Ejecuta la lógica definida en el script para procesar los productos obtenidos mediante scraping y devuelve los productos con alertas.  
-  - Respuesta exitosa: Código 200 OK con un array de objetos JSON que contienen los productos con alertas.
-  - Respuesta de error: Código 500 Internal Server Error si ocurre un error al procesar los productos con alertas.
+Description: 
+  - Executes the logic defined in the script to process the products obtained through scraping and returns the products with alerts.  
+  - Successful response: Code 200 OK with an array of JSON objects that contain the products with alerts.
+  - Error response: Code 500 Internal Server Error if an error occurs while processing products with alerts.
 
-  6. Ejecucion:
+  6. Execution:
 
 ```bash
 node index.js
